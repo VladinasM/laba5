@@ -5,4 +5,9 @@ for i in range(len(l)-1, -1, -1):
     if l[i] == ' ' :
         if l[i - 1] == ' ':
             l[i] = ''
-print(l)
+
+s = ''.join(l)
+with open('output.txt', 'w') as file:
+    file.write(s)
+file.close()
+print(s)
