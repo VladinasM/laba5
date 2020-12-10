@@ -1,13 +1,23 @@
-l = []
-with open('input.txt') as f:
-    l = f.read().splitlines()
-for i in range(len(l)-1, -1, -1):
-    if l[i] == ' ' :
-        if l[i - 1] == ' ':
-            l[i] = ''
+# Загрузка файла
+with open('input.txt', 'r') as txt_in:
+    txt_do = (txt_in.read())
+print(txt_do)
 
-s = ''.join(l)
-with open('output.txt', 'w') as file:
-    file.write(s)
-file.close()
-print(s)
+# Преобразование в список
+wrd_list = txt_do.split(' ')
+print(wrd_list)
+
+# Избавление от пробелов
+while ('') in wrd_list:
+    wrd_list.remove('')
+
+final_version = ''
+
+# Создание конечного варианта
+for word in range(len(wrd_list)):
+    final_version +=(str(' '+wrd_list[word]))
+print(' '+final_version)
+
+# Выгрузка нового файла
+with open('output.txt', 'wt') as txt_out:
+    txt_out.write(final_version)
